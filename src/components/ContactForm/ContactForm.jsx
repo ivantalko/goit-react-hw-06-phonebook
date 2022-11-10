@@ -13,18 +13,17 @@ export const ContactForm = () => {
     setName('');
     setNumber('');
   };
-
-  const onChangeName = event => {
-    setName(event.target.value);
-  };
-  const onChangeNumber = event => {
-    setNumber(event.target.value);
-  };
   const handleSubmit = (name, number) => {
     if (contacts.some(contact => contact.name === name)) {
       return alert(`${name} is already in contacts`);
     }
     dispatch(addContactAction({ name, number, id: nanoid() }));
+  };
+  const onChangeName = event => {
+    setName(event.target.value);
+  };
+  const onChangeNumber = event => {
+    setNumber(event.target.value);
   };
 
   return (
